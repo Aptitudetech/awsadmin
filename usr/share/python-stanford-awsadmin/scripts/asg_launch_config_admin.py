@@ -79,11 +79,11 @@ def main(*args):
         else:
             (status,output) = delete_launch_config(lc_name)
 
+    print output
     if status != 0:
         print "ERROR in operation on " + lc_name
         sys.exit(1)
 
-    print output
 if __name__ == '__main__':
     main(*sys.argv[1:])
 
