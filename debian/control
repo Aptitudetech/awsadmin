@@ -1,0 +1,16 @@
+Source: python-stanford-awsadmin
+Section: admin
+Priority: optional 
+Maintainer: Xueshan Feng <sfeng@stanford.edu>
+Uploaders: Xueshan Feng <sfeng@stanford.edu>
+Build-Depends: debhelper (>= 8), python, python-support, rsync
+Standards-Version: 3.9.1
+
+Package: python-stanford-awsadmin
+Architecture: any 
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends},
+ python (>= 2.5), python-gdata (>=2.0.17), python-ldap
+Recommends: remctl-server
+Description: Stanford AWS management tools and modules 
+ This package contains scripts and modules used for managing the AWS services
+ of Stanford AWS accounts.

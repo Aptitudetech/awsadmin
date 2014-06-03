@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+
+PACKAGE = $(shell dh_listpackages)
+VERSION = $(shell dpkg-parsechangelog | grep ^Version: | cut -d' ' -f2 \
+		| cut -d- -f1)
+
+%:
+	dh $@
+
+
+override_dh_auto_install:
+	rsync -C --recursive --links --perms --times --delete \
+	    --exclude debian $(CURDIR)/ debian/$(PACKAGE)
+
+#override_dh_pysupport:
+#	dh_pysupport -a debian/$(PACKAGE)/usr/share/suawsadmin/scripts debian/$(PACKAGE)/usr/share/suawsadmin/lib debian/$(PACKAGE)/usr/share/suawsadmin/lib/alias
